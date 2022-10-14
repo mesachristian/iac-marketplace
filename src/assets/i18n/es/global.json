@@ -1,0 +1,15 @@
+{
+    "global" : {
+        "lblIAC" : "Industria Agrícola Colombiana"
+    },
+
+    "navbar" : {
+        "lblHome" : "Inicio",
+        "lblAbout" : "Acerca",
+        "lblMarketplace" : "Marketplace"
+    },
+
+    "home" : {
+        
+    }
+} 
