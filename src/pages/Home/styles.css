@@ -1,7 +1,15 @@
-#drag, #spin{
+#drag{
     position: relative;
     width: 100%;
     height: 100%;
+    display: flex;
+    margin: auto;
+    transform-style: preserve-3d;
+    transform: rotateX(-10deg);
+}
+
+#spin{
+    position: relative;
     display: flex;
     margin: auto;
     transform-style: preserve-3d;
@@ -17,13 +25,12 @@
     height: 100%;
     line-height: 200px;
     text-align: center;
-    box-shadow: 0 0 8px #fff;
-    -webkit-box-reflect: below 10px linear-gradient(transparent transparent #0005);
-
+    box-shadow: 0 0 8px rgb(128, 128, 128);
+    -webkit-box-reflect: below 10px linear-gradient(transparent, rgba(87, 87, 87, 0.333));
 }
 
 #drag img:hover{
-    box-shadow: 0 0 15px #fff;
+    box-shadow: 0 0 15px rgb(94, 94, 94);
     -webkit-box-reflect: below 10px linear-gradient(transparent transparent #0007);
 }
 
@@ -34,4 +41,13 @@
     top: 100%;
     left: 50%;
     transform: translate(-50%, -50%) rotateX(90deg);
+}
+
+@keyframes spinRight{
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
 }

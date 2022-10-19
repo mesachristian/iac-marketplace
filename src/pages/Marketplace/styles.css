@@ -1,0 +1,10 @@
+input[type="text"]:focus ~ .input-text{
+    @apply text-white transform -translate-y-6 -translate-x-4 scale-75;
+}
+
+input[type="text"]:focus ~ .input-text .search-text{
+    @apply bg-primary
+}
+input[type="text"]:focus ~ .input-text .search-comp{
+    @apply hidden
+}
