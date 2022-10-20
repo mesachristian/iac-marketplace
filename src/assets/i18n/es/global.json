@@ -1,6 +1,7 @@
 {
     "global" : {
-        "lblIAC" : "Industria Agrícola Colombiana"
+        "lblIAC" : "Industria Agrícola Colombiana",
+        "lblGetStarted" : "Comienza ya"
     },
 
     "navbar" : {
@@ -10,6 +11,16 @@
     },
 
     "home" : {
-        
+        "sec-1" : {
+            "lblP1" : "Ir a",
+            "lblP2" : "Tienda", 
+            "lblRentability" : "de rentabilidad por",
+            "lblYear" : "1 Año",
+            "lblNft" : "de tu NFT",
+            "lblTitle1" : "La Nueva Forma de",
+            "lblTitle2" : "Invertir",
+            "lblTitle3" : "En el Agro Colombiano",
+            "lblDescription" : "Nuestra plataforma ayuda a personas sin conocimiento en el la industría agricola a invertir usando el capital de expertos mediante la tecnologia de blockchain."
+        }
     }
 } 

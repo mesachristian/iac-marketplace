@@ -1,71 +1,23 @@
-import React, { useEffect } from "react";
-import { TbDiscount2 } from "react-icons/tb";
-import GetStarted from "./components/GetStarted";
-import robot from "assets/images/robot.png";
-import Shield from "assets/images/Shield.svg";
-import Send from "assets/images/Send.svg";
-import Star from "assets/images/Star.svg";
+import React, {useEffect } from "react";
 
 import "./styles.css";
 
+// COMPONENTS
+import { 
+  Intro,
+  Business
+} from "./components";
+
 import cow_nft from "assets/img/cow_nft.jpg";
+import { useTranslation } from "react-i18next";
 
-export const features = [
-  {
-    id: "feature-1",
-    icon: Star,
-    title: "Rewards",
-    content:
-      "The best credit cards offer some tantalizing combinations of promotions and prizes",
-  },
-  {
-    id: "feature-2",
-    icon: Shield,
-    title: "100% Secured",
-    content:
-      "We take proactive steps make sure your information and transactions are secure.",
-  },
-  {
-    id: "feature-3",
-    icon: Send,
-    title: "Balance Transfer",
-    content:
-      "A balance transfer credit card can save you a lot of money in interest charges.",
-  },
-];
-
-interface FeatureCardProps {
-  icon: any;
-  title: string;
-  content: string;
-  index: number;
-}
-
-const FeatureCard = ({ icon, title, content, index }: FeatureCardProps) => (
-  <div
-    className={`flex flex-row p-6 rounded-[20px] ${
-      index !== features.length - 1 ? "mb-6" : "mb-0"
-    } feature-card`}
-  >
-    <div
-      className={`w-[64px] h-[64px] rounded-full flex justify-center items-center bg-dimBlue`}
-    >
-      <img src={icon} alt="star" className="w-[50%] h-[50%] object-contain" />
-    </div>
-    <div className="flex-1 flex flex-col ml-3">
-      <h4 className="font-semibold text-primary-text text-[18px] leading-[23.4px] mb-1">
-        {title}
-      </h4>
-      <p className="font-normal text-primary-text text-[16px] leading-[24px]">
-        {content}
-      </p>
-    </div>
-  </div>
-);
+import logo from 'assets/images/logo.png';
+import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 
 const ImageCarousel3D = () => {
   useEffect(() => {
     var radius = window.outerWidth > 680 ? 340 : 180;
+    radius = window.outerWidth > 1700 ? 420 : radius;
 
     var ospin = document.getElementById("spin");
     let aImg = ospin?.getElementsByTagName("img");
@@ -104,10 +56,10 @@ const ImageCarousel3D = () => {
       <h1 className="text-primary-title text-4xl uppercase font-bold text-center">Invierte y consigue tu NFT único que representa tu propiedad</h1>
 
       <div id="drag">
-        <div id="spin" className="sm:w-[190px] w-[100px] sm:h-[230px] h-[130px]">
+        <div id="spin" className="sm:w-[190px] xl:w-[250px] w-[100px] sm:h-[230px] xl:h-[290px] h-[130px]">
           {IMAGES.map( (img, idx) => {
             return(
-              <img src={img} key={idx} alt="" className="rounded-2xl sm:w-[190px] w-[100px] sm:h-[230px] h-[130px]"/>
+              <img src={img} key={idx} alt="" className="rounded-2xl sm:w-[190px] xl:w-[250px] w-[100px] sm:h-[230px] xl:h-[290px] h-[130px]"/>
             );
           })}
         </div>
@@ -120,90 +72,162 @@ const ImageCarousel3D = () => {
 const Home = () => {
   return (
     <React.Fragment>
-      <section id="home" className="flex sm:px-32 xl:px-0 px-12 md:flex-row flex-col sm:py-16 py-6">
-        <div className="flex-1 flex justify-center items-start flex-col">
-          <div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2">
-            <TbDiscount2 className="w-[32px] h-[32px] text-green-400" />
-            <p className="font-normal text-primary-text text-[18px] leading-[30.8px] ml-2">
-              <span className="text-green-400">20%</span> Discount For{" "}
-              <span className="text-green-400">1 Month</span> Account
-            </p>
-          </div>
+      <Intro />
 
-          <div className="flex flex-row justify-between items-center w-full">
-            <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-primary-title ss:leading-[100.8px] leading-[75px]">
-              The Next <br className="sm:block hidden" />{" "}
-              <span className="text-gradient">Generation</span>{" "}
-            </h1>
-            <div className="ss:flex hidden md:mr-4 mr-0">
-              <GetStarted />
-            </div>
-          </div>
-
-          <h1 className="font-semibold ss:text-[68px] text-[52px] text-primary-title ss:leading-[100.8px] leading-[75px] w-full">
-            Payment Method.
-          </h1>
-          <p className="font-normal text-primary-text text-[18px] leading-[30.8px] max-w-[470px] mt-5">
-            Our team of experts uses a methodology to identify the credit cards
-            most likely to fit your needs. We examine annual percentage rates,
-            annual fees.
-          </p>
-        </div>
-
-        <div
-          className={`flex-1 flex justify-center items-center md:my-0 my-10 relative`}
-        >
-          <img
-            src={robot}
-            alt="billing"
-            className="w-[100%] h-[100%] relative z-[5]"
-          />
-
-          {/* gradient start */}
-          <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
-          <div className="absolute z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
-          <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
-          {/* gradient end */}
-        </div>
-
-        <div className="ss:hidden flex justify-center items-center">
-          <GetStarted />
-        </div>
-      </section>
-
-      <section
-        id="features"
-        className="flex sm:px-32 xl:px-0 px-12 md:flex-row flex-col sm:py-16 py-6"
-      >
-        <div className="flex-1 flex justify-center items-start flex-col">
-          <h2 className="font-semibold xs:text-[48px] text-[40px] text-primary-title xs:leading-[76.8px] leading-[66.8px] w-full">
-            You do the business, <br className="sm:block hidden" /> we’ll handle
-            the money.
-          </h2>
-          <p className="font-normal text-primary-text text-[18px] leading-[30.8px] max-w-[470px] mt-5">
-            With the right credit card, you can improve your financial life by
-            building credit, earning rewards and saving money. But with hundreds
-            of credit cards on the market.
-          </p>
-
-          <button
-            type="button"
-            className={`py-4 px-6 font-poppins font-medium text-[18px] text-custom-white bg-green-gradient rounded-[10px] outline-none mt-10`}
-          >
-            Get Started
-          </button>
-        </div>
-
-        <div className="flex-1 flex justify-center items-center md:ml-10 ml-0 md:mt-0 mt-10 relative flex-col">
-          {features.map((feature, index) => (
-            <FeatureCard key={feature.id} {...feature} index={index} />
-          ))}
-        </div>
-      </section>
+      <Business />
 
       <ImageCarousel3D />
+
+      <CTA />
+
+      <Footer />
     </React.Fragment>
   );
 };
+
+const CTA = () => {
+
+  const [translate] = useTranslation();
+  
+  return (
+    <div className="w-full sm:px-32 xl:px-0 px-12">
+    <section className={`flex justify-center items-center sm:px-16 px-6 sm:my-16 my-6 sm:py-12 py-4 sm:flex-row flex-col rounded-[20px] bg-black-gradient-2 box-shadow`}>
+      <div className="flex-1 flex flex-col">
+        <h2 className="font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full">Let’s try our service now!</h2>
+        <p className={`font-normal text-dimWhite text-[18px] leading-[30.8px] max-w-[470px] mt-5`}>
+          Everything you need to accept card payments and grow your business
+          anywhere on the planet.
+        </p>
+      </div>
+
+      <div className={`flex justify-center items-center sm:ml-10 ml-0 sm:mt-0 mt-10`}>
+        <button className="py-2 px-4 font-poppins font-medium text-[18px] text-custom-white bg-green-gradient rounded-[10px] outline-none cursor-pointer">
+          {translate("navbar.lblMarketplace")}
+        </button>
+      </div>
+    </section>
+    </div>
+  )
+}
+
+const Footer = () => {
+
+  const footerLinks = [
+    {
+      title: "Useful Links",
+      links: [
+        {
+          name: "Content",
+          link: "https://www.hoobank.com/content/",
+        },
+        {
+          name: "How it Works",
+          link: "https://www.hoobank.com/how-it-works/",
+        },
+        {
+          name: "Create",
+          link: "https://www.hoobank.com/create/",
+        },
+        {
+          name: "Explore",
+          link: "https://www.hoobank.com/explore/",
+        },
+        {
+          name: "Terms & Services",
+          link: "https://www.hoobank.com/terms-and-services/",
+        },
+      ],
+    },
+    {
+      title: "Community",
+      links: [
+        {
+          name: "Help Center",
+          link: "https://www.hoobank.com/help-center/",
+        },
+        {
+          name: "Partners",
+          link: "https://www.hoobank.com/partners/",
+        },
+        {
+          name: "Suggestions",
+          link: "https://www.hoobank.com/suggestions/",
+        },
+        {
+          name: "Blog",
+          link: "https://www.hoobank.com/blog/",
+        },
+        {
+          name: "Newsletters",
+          link: "https://www.hoobank.com/newsletters/",
+        },
+      ],
+    },
+    {
+      title: "Partner",
+      links: [
+        {
+          name: "Our Partner",
+          link: "https://www.hoobank.com/our-partner/",
+        },
+        {
+          name: "Become a Partner",
+          link: "https://www.hoobank.com/become-a-partner/",
+        },
+      ],
+    },
+  ];
+
+  return(
+    <section className={`sm:px-32 xl:px-0 px-12 flex justify-center items-center sm:py-16 py-6 flex-col`}>
+    <div className={`flex justify-center items-start md:flex-row flex-col mb-8 w-full`}>
+      <div className="flex-[1] flex flex-col justify-start mr-10">
+        <img
+          src={logo}
+          alt="hoobank"
+          className="w-[266px] h-[72.14px] object-contain"
+        />
+        <p className={`font-normal text-primary-text text-[18px] leading-[30.8px] mt-4 max-w-[312px]`}>
+          A new way to make the payments easy, reliable and secure.
+        </p>
+      </div>
+
+      <div className="flex-[1.5] w-full flex flex-row justify-between flex-wrap md:mt-0 mt-10">
+        {footerLinks.map((footerlink) => (
+          <div key={footerlink.title} className={`flex flex-col ss:my-0 my-4 min-w-[150px]`}>
+            <h4 className="font-poppins font-medium text-[18px] leading-[27px] text-primary-title">
+              {footerlink.title}
+            </h4>
+            <ul className="list-none mt-4">
+              {footerlink.links.map((link, index) => (
+                <li
+                  key={link.name}
+                  className={`font-poppins font-normal text-[16px] text-primary-text leading-[24px] text-dimWhite hover:text-secondary cursor-pointer ${
+                    index !== footerlink.links.length - 1 ? "mb-4" : "mb-0"
+                  }`}
+                >
+                  {link.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="w-full flex justify-between items-center md:flex-row flex-col pt-6 border-t-[1px] border-t-[#3F3E45]">
+      <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-primary-text">
+        Copyright © 2022 HooBank. All Rights Reserved.
+      </p>
+
+      <div className="flex flex-row md:mt-0 mt-6 text-primary-text">
+        <BsFacebook className="w-[21px] h-[21px] mr-6"/>
+        <BsTwitter className="w-[21px] h-[21px] mr-6"/>
+        <BsInstagram className="w-[21px] h-[21px]"/>
+      </div>
+    </div>
+  </section>
+  );
+}
 
 export default Home;

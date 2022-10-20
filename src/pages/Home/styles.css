@@ -51,3 +51,12 @@
         transform: rotateY(360deg);
     }
 }
+
+.bg-black-gradient-2 {
+    background: linear-gradient(
+      -168.39deg,
+      #ddf7e0 -278.56%,
+      #5c9e67 -78.47%,
+      #035a15 91.61%
+    );
+  }
